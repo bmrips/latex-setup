@@ -1,13 +1,13 @@
-\RequirePackage{f1rstlady/prelude}
+\RequirePackage{bmrips/prelude}
 
 \LoadClassWithOptions{scrarticle}
 
 \LoadPackage{
-    f1rstlady/font,
-    f1rstlady/language,
-    f1rstlady/hyperlinks,
-    f1rstlady/miscellaneous,
-    f1rstlady/textflow
+    bmrips/font,
+    bmrips/language,
+    bmrips/hyperlinks,
+    bmrips/miscellaneous,
+    bmrips/textflow
 }
 
 \LoadPackage[

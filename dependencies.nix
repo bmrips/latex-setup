@@ -1,10 +1,10 @@
-pkgs: { texDeps ? _: [] }:
+pkgs:
 
-with pkgs; [
+{
 
-  python3Packages.pygments
+  propagatedBuildInputs = [ pkgs.python3Packages.pygments ];
 
-  (texliveBasic.withPackages (tpkgs: with tpkgs; [
+  passthru.tlDeps = with pkgs.texlive; [
     amscls
     amsfonts
     beamer
@@ -50,6 +50,6 @@ with pkgs; [
     xcolor
     xurl
     zref
-  ] ++ texDeps tpkgs))
+  ];
 
-]
+}

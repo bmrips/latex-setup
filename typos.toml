@@ -1,0 +1,5 @@
+[files]
+extend-exclude = [
+  "/template/.gitignore",
+  "/template/.Makefile"
+]

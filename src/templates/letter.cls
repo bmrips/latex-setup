@@ -1,4 +1,4 @@
-\RequirePackage{f1rstlady/prelude}
+\RequirePackage{bmrips/prelude}
 
 \LoadClassWithOptions[
     parskip = half,
@@ -8,9 +8,9 @@
     frommobilephone = on,
 ]{scrlttr2}
 \LoadPackage{
-    f1rstlady/font,
-    f1rstlady/language,
-    f1rstlady/textflow
+    bmrips/font,
+    bmrips/language,
+    bmrips/textflow
 }
 
 \LoadLetterOption{data}

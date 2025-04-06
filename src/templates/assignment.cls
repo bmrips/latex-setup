@@ -1,4 +1,4 @@
-\RequirePackage{f1rstlady/prelude}
+\RequirePackage{bmrips/prelude}
 
 \LoadClassWithOptions[
     footsepline,
@@ -6,12 +6,12 @@
     headlines = 3
 ]{scrarticle}
 \LoadPackage{
-    f1rstlady/font,
-    f1rstlady/language,
-    f1rstlady/textflow,
-    f1rstlady/hyperlinks,
-    f1rstlady/miscellaneous,
-    f1rstlady/math
+    bmrips/font,
+    bmrips/language,
+    bmrips/textflow,
+    bmrips/hyperlinks,
+    bmrips/miscellaneous,
+    bmrips/math
 }
 
 % Head holds university, course, author and title, page number as foot

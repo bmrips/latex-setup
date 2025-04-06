@@ -1,9 +1,12 @@
 main.pdf
 
 ## Nix build result
-/result
+/result*
 
-# $TEXMFHOME
+# pre-commit
+/.pre-commit-config.yaml
+
+# $TEXMFVAR
 /.cache
 
 ## Core latex/pdflatex auxiliary files:

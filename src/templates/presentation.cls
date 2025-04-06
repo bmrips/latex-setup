@@ -1,15 +1,15 @@
-\RequirePackage{f1rstlady/prelude}
+\RequirePackage{bmrips/prelude}
 
 \LoadClassWithOptions[
     10pt,
     xcolor = x11names
 ]{beamer}
 \LoadPackage{
-    f1rstlady/font,
-    f1rstlady/language,
-    f1rstlady/textflow,
-    f1rstlady/hyperlinks.d/email,
-    f1rstlady/miscellaneous
+    bmrips/font,
+    bmrips/language,
+    bmrips/textflow,
+    bmrips/hyperlinks.d/email,
+    bmrips/miscellaneous
 }
 
 \hypersetup{
