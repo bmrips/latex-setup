@@ -20,7 +20,10 @@
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
 
-      imports = with inputs; [ pre-commit.flakeModule ];
+      imports = with inputs; [
+        latex-setup.flakeModule
+        pre-commit.flakeModule
+      ];
 
       systems = [
         "aarch64-darwin"
@@ -31,40 +34,14 @@
       ];
 
       perSystem =
+        { config, ... }:
         {
-          config,
-          inputs',
-          pkgs,
-          self',
-          ...
-        }:
-        {
-
-          packages.default = pkgs.stdenvNoCC.mkDerivation {
-            name = "tbd";
+          packages.default = config.latex.documents;
+          devShells.default = config.latex.devShell;
+          latex = {
             src = ./.;
-            nativeBuildInputs = [
-              (pkgs.texliveBasic.withPackages (_: [ inputs'.latex-setup.packages.default ]))
-            ];
-            preBuild = "export TEXMFVAR=$(mktemp -d)";
+            extraPackages = _texPkgs: [ ];
           };
-
-          devShells.default = pkgs.mkShell {
-            inputsFrom = [ self'.packages.default ];
-            packages = config.pre-commit.settings.enabledPackages ++ [
-              config.pre-commit.settings.package
-              pkgs.ltex-ls
-              pkgs.texlab
-            ];
-            shellHook =
-              config.pre-commit.installationScript
-              + ''
-                TEXMFVAR=.cache/texmf-var
-                mkdir -p $TEXMFVAR
-                export TEXMFVAR="$(realpath "$TEXMFVAR")"
-              '';
-          };
-
           pre-commit.settings.hooks = {
             check-added-large-files.enable = true;
             check-merge-conflicts.enable = true;
@@ -76,7 +53,6 @@
             nixfmt-rfc-style.enable = true;
             trim-trailing-whitespace.enable = true;
           };
-
         };
 
     };

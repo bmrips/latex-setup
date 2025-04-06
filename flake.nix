@@ -14,9 +14,12 @@
 
       imports = with inputs; [ pre-commit.flakeModule ];
 
-      flake.templates.default = {
-        description = "A LaTeX document with my setup.";
-        path = ./template;
+      flake = {
+        flakeModule = import ./flake-module.nix inputs.self;
+        templates.default = {
+          description = "A LaTeX document with my setup.";
+          path = ./template;
+        };
       };
 
       systems = [
