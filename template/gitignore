@@ -3,6 +3,9 @@ main.pdf
 ## Nix build result
 /result
 
+# pre-commit
+/.pre-commit-config.yaml
+
 # $TEXMFHOME
 /.cache
 
