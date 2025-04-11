@@ -35,7 +35,7 @@ in
               A function on the Texlive package set that returns a list of extra
               packages that will be installed into the TeX environment.
             '';
-            default = (_: [ ]);
+            default = _: [ ];
             defaultText = "(_: [])";
           };
           documents = mkOption {

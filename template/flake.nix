@@ -48,9 +48,12 @@
             check-symlinks.enable = true;
             check-vcs-permalinks.enable = true;
             convco.enable = true;
+            deadnix.enable = true;
             detect-private-keys.enable = true;
             mixed-line-endings.enable = true;
             nixfmt-rfc-style.enable = true;
+            statix.enable = true;
+            statix.settings.format = "stderr";
             trim-trailing-whitespace.enable = true;
           };
         };
