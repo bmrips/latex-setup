@@ -6,6 +6,9 @@ main.pdf
 # pre-commit
 /.pre-commit-config.yaml
 
+# Direnv
+/.direnv/
+
 # $TEXMFVAR
 /.cache
 
