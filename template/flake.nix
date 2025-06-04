@@ -47,6 +47,7 @@
             check-merge-conflicts.enable = true;
             check-symlinks.enable = true;
             check-vcs-permalinks.enable = true;
+            chktex.enable = true;
             convco.enable = true;
             deadnix.enable = true;
             detect-private-keys.enable = true;
