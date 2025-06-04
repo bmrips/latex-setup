@@ -72,7 +72,7 @@ in
               withPreCommit = options ? pre-commit;
             in
             pkgs.mkShell {
-              inputsFrom = [ config.packages.default ];
+              inputsFrom = [ config.latex.documents ];
               packages =
                 [
                   pkgs.ltex-ls
