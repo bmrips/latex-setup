@@ -1,6 +1,6 @@
-main.pdf
+/main.pdf
 
-## Nix build result
+# Nix build result
 /result*
 
 # pre-commit
