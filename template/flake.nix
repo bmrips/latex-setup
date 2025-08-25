@@ -4,16 +4,10 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    latex-setup = {
-      url = "github:bmrips/latex-setup";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.pre-commit.follows = "pre-commit";
-    };
-    pre-commit = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    latex-setup.url = "github:bmrips/latex-setup";
+    latex-setup.inputs.nixpkgs.follows = "nixpkgs";
+    pre-commit.url = "github:cachix/git-hooks.nix";
+    pre-commit.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
