@@ -44,6 +44,7 @@
                   out="''${tex-}"
                 '')
               ];
+              dontBuild = true;
               installPhase = ''
                 runHook preInstall
                 tgt="$tex/tex/latex"
