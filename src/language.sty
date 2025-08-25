@@ -2,9 +2,11 @@
 
 \DeclareOption{english}{
     \setdefaultlanguage[variant=british]{english}
+    \PassOptionsToPackage{english}{selnolig}
 }
 \DeclareOption{german}{
     \setdefaultlanguage{german}
+    \PassOptionsToPackage{ngerman}{selnolig}
 }
 \DeclareOption*{
     \PackageWarning{language}{Unknown option ‘\CurrentOption’}
