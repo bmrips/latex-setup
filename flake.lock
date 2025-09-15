@@ -95,15 +95,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1744526350,
-        "narHash": "sha256-N/07yv1dS20kFIw/uXcfHb8/PHCDuU084lmyTz/11/0=",
-        "owner": "bmrips",
+        "lastModified": 1757953049,
+        "narHash": "sha256-PwWGLIn8XNXSP4iRno2vK6b/Hy/mo6qZuRDzSB1VA4Y=",
+        "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "a2fd1dd1a301725ecf667b145195944aca2cd822",
+        "rev": "d1d8fe5cece10276fb7108e17c9a5efc07926ce5",
         "type": "github"
       },
       "original": {
-        "owner": "bmrips",
+        "owner": "cachix",
         "repo": "git-hooks.nix",
         "type": "github"
       }

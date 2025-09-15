@@ -4,7 +4,7 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    pre-commit.url = "github:bmrips/git-hooks.nix";
+    pre-commit.url = "github:cachix/git-hooks.nix";
     pre-commit.inputs.nixpkgs.follows = "nixpkgs";
   };
 
