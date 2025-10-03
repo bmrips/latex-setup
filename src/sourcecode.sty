@@ -1,24 +1,82 @@
 \RequirePackage{bmrips/prelude}
 
-\LoadPackage{xcolor,luacolor}
-\LoadPackageWithOptions[newfloat]{minted}
-\setminted{
-    fontsize = \small,
-    style = algol_nu, % good styles: friendly, trac, vs, tango, stata, sas, lovelace, algol_nu, bw,
-    autogobble, % Automatically remove common whitespace,
-    xleftmargin = 1em,
-    numbersep = 5pt,
-    bgcolor = gray!10,
+\LoadPackage{
+    listings,
+    stmaryrd
 }
-\setmintedinline{bgcolor = {}}
 
-% Mimic the listings package with a background colour set
-\LoadPackage{mdframed}
-\renewenvironment{minted@colorbg}[1]{
-    \begin{mdframed}[
-        backgroundcolor = #1,
-        hidealllines = true
-    ]
-}{
-    \end{mdframed}
+\lstdefinestyle{MyStyle}{
+    basewidth=0.45em,
+    basicstyle=\small\ttfamily,
+    breaklines=false,
+    columns=[c]fixed,
+    commentstyle=\normalfont\itshape,
+    emptylines=1,
+    escapeinside={(\#}{\#)}, % chktex 9
+    identifierstyle=\footnotesize\ttfamily,
+    keepspaces=true,
+    keywordstyle=\footnotesize\bfseries,
+    numbers=none,
+    showstringspaces=false,
+    tabsize=2,
+    texcl=true,
 }
+
+\lstdefinestyle{MyInlineStyle}{
+    style=MyStyle,
+    basicstyle=\normalsize\ttfamily,
+    identifierstyle=\small\ttfamily,
+    keywordstyle=\small\bfseries,
+}
+
+\lstdefinelanguage{Haskell}{%
+    sensitive,
+    string=[b]",
+    morecomment=[l]--,
+    morecomment=[n]{\{-}{-\}},
+	keywords={
+        abstype,
+        case,
+        class,
+        data,
+        default,
+        deriving,
+        do,
+        else,
+        forall,
+        hiding,
+        if,
+        if,
+        import,
+        in,
+        infix,
+        infixl,
+        infixr,
+        instance,
+        let,
+        module,
+        newtype,
+        of,
+        Q,
+        qualified,
+        then,
+        type,
+        where
+    },
+	literate=
+		{\_}{{\raisebox{.15ex}{\_}}}1
+		{~}{{\raisebox{-.6ex}{\textasciitilde}}}1
+		{\\}{{$\lambda\:$}}1
+		{->}{{$\shortrightarrow$}}2
+		{>->}{{>->}}3
+		{<-}{{$\shortleftarrow$}}2
+		{=>}{{$\Rightarrow$}}2
+		{<=}{{$\Leftarrow$}}2
+		{...}{{$\cdots$}}3 % chktex 11
+		{\[|}{{$\llbracket$}}1
+		{|\]}{{$\rrbracket$}}1
+}[keywords,comments,strings]
+
+\lstnewenvironment{haskell}[1][]
+  {\lstset{language=Haskell,style=MyStyle,#1}}
+  {}
