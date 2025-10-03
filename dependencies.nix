@@ -26,23 +26,25 @@ pkgs:
     lastpage
     latexmk
     libertine
+    listings
     luacolor
     luatexbase
     mathdots
     mathtools
     mdframed
     microtype
-    minted
     moloch
     ncctools # extdash
     needspace
     newfloat
     newtx
     oberdiek # ifdraft, iflang
+    pgfopts # listings
     polyglossia
     relsize
     selnolig
     setspace
+    stmaryrd
     tikz-cd
     todonotes
     tools # multicol, varioref
