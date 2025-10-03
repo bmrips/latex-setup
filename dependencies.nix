@@ -33,6 +33,7 @@ pkgs:
     mdframed
     microtype
     minted
+    moloch
     ncctools # extdash
     needspace
     newfloat
