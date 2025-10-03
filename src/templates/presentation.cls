@@ -26,9 +26,3 @@
 \LoadPackage{luacolor}
 \definecolor{darkred}{rgb}{0.8,0,0}
 \setbeamercolor{alerted text}{fg=darkred!80!gray}
-
-% To set minor items in lists smaller and grey
-\LoadPackage{relsize}
-\newcommand*{\minor}[1]{
-    \textcolor{black!50}{\smaller #1}
-}
