@@ -1,15 +1,6 @@
 self:
 { lib, flake-parts-lib, ... }:
 
-let
-  inherit (lib)
-    mkOption
-    optionals
-    optionalString
-    types
-    ;
-
-in
 {
   options = {
     perSystem = flake-parts-lib.mkPerSystemOption (
@@ -22,15 +13,15 @@ in
       }:
       {
         options.latex = {
-          src = mkOption {
-            type = types.path;
+          src = lib.mkOption {
+            type = lib.types.path;
             description = ''
               The source code for the documents.
             '';
             defaultText = "./.";
           };
-          extraPackages = mkOption {
-            type = types.anything;
+          extraPackages = lib.mkOption {
+            type = lib.types.anything;
             description = ''
               A function on the Texlive package set that returns a list of extra
               packages that will be installed into the TeX environment.
@@ -38,15 +29,15 @@ in
             default = _: [ ];
             defaultText = "(_: [])";
           };
-          documents = mkOption {
-            type = types.package;
+          documents = lib.mkOption {
+            type = lib.types.package;
             description = ''
               A derivation containing all documents that are built by the Makefile.
             '';
             readOnly = true;
           };
-          devShell = mkOption {
-            type = types.package;
+          devShell = lib.mkOption {
+            type = lib.types.package;
             description = ''
               A development shell with Texlive installed and set up.
             '';
@@ -78,7 +69,7 @@ in
                   pkgs.ltex-ls
                   pkgs.texlab
                 ]
-                ++ optionals withPreCommit (
+                ++ lib.optionals withPreCommit (
                   config.pre-commit.settings.enabledPackages ++ [ config.pre-commit.settings.package ]
                 );
               shellHook =
@@ -87,7 +78,7 @@ in
                   mkdir -p $TEXMFVAR
                   export TEXMFVAR="$(realpath "$TEXMFVAR")"
                 ''
-                + optionalString withPreCommit config.pre-commit.installationScript;
+                + lib.optionalString withPreCommit config.pre-commit.installationScript;
             };
 
         };
