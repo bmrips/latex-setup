@@ -60,25 +60,21 @@ self:
 
           latex.devShell =
             let
-              withPreCommit = options ? pre-commit;
+              withPreCommit = options ? pre-commit && config.pre-commit.settings.enable;
             in
             pkgs.mkShell {
-              inputsFrom = [ config.latex.documents ];
-              packages =
-                [
-                  pkgs.ltex-ls
-                  pkgs.texlab
-                ]
-                ++ lib.optionals withPreCommit (
-                  config.pre-commit.settings.enabledPackages ++ [ config.pre-commit.settings.package ]
-                );
-              shellHook =
-                ''
-                  TEXMFVAR=.cache/texmf-var
-                  mkdir -p $TEXMFVAR
-                  export TEXMFVAR="$(realpath "$TEXMFVAR")"
-                ''
-                + lib.optionalString withPreCommit config.pre-commit.installationScript;
+              inputsFrom = [
+                config.latex.documents
+              ] ++ lib.optional withPreCommit config.pre-commit.devShell;
+              packages = [
+                pkgs.ltex-ls
+                pkgs.texlab
+              ];
+              shellHook = ''
+                TEXMFVAR=.cache/texmf-var
+                mkdir -p $TEXMFVAR
+                export TEXMFVAR="$(realpath "$TEXMFVAR")"
+              '';
             };
 
         };
