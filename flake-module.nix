@@ -17,7 +17,7 @@ self:
           description = ''
             The source code for the documents.
           '';
-          defaultText = "./.";
+          example = lib.literalExpression "./.";
         };
         extraPackages = lib.mkOption {
           type = lib.types.anything;
