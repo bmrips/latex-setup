@@ -57,24 +57,18 @@ self:
           preBuild = "export TEXMFVAR=$(mktemp -d)";
         };
 
-        latex.devShell =
-          let
-            withPreCommit = options ? pre-commit && config.pre-commit.settings.enable;
-          in
-          pkgs.mkShell {
-            inputsFrom = [
-              config.latex.documents
-            ] ++ lib.optional withPreCommit config.pre-commit.devShell;
-            packages = [
-              pkgs.ltex-ls
-              pkgs.texlab
-            ];
-            shellHook = ''
-              TEXMFVAR=.cache/texmf-var
-              mkdir -p $TEXMFVAR
-              export TEXMFVAR="$(realpath "$TEXMFVAR")"
-            '';
-          };
+        latex.devShell = pkgs.mkShell {
+          inputsFrom = [ config.latex.documents ];
+          packages = [
+            pkgs.ltex-ls
+            pkgs.texlab
+          ];
+          shellHook = ''
+            TEXMFVAR=.cache/texmf-var
+            mkdir -p $TEXMFVAR
+            export TEXMFVAR="$(realpath "$TEXMFVAR")"
+          '';
+        };
 
       };
     }

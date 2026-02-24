@@ -22,14 +22,22 @@
       systems = inputs.nixpkgs.lib.platforms.all;
 
       perSystem =
-        { config, ... }:
+        { config, pkgs, ... }:
         {
           packages.default = config.latex.documents;
-          devShells.default = config.latex.devShell;
+
+          devShells.default = pkgs.mkShell {
+            inputsFrom = [
+              config.latex.devShell
+              config.pre-commit.devShell
+            ];
+          };
+
           latex = {
             src = ./.;
             extraPackages = _texPkgs: [ ];
           };
+
           pre-commit.settings.hooks = {
             check-added-large-files.enable = true;
             check-merge-conflicts.enable = true;
