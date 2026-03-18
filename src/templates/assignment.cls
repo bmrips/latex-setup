@@ -22,9 +22,15 @@
 \LoadPackage{lastpage}
 \addtokomafont{pagehead}{\normalshape}
 \addtokomafont{pagefoot}{\normalshape}
-\cfoot{\IfLanguageName{german}
-    {Seite:~\thepage~von~\pageref{LastPage}} % German
-    {Page:~\thepage~of~\pageref{LastPage}}}  % English
+\cfoot{
+    \IfLanguageName{german}{%
+        Seite:~\thepage~von~\pageref{LastPage}%
+    }{\IfLanguageName{dutch}{%
+        Pagina:~\thepage~van~\pageref{LastPage}%
+    }{%
+        Page:~\thepage~of~\pageref{LastPage}%
+    }}
+}
 
 \def\@university{~}
 \def\@course{~}

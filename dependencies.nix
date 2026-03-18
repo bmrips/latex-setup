@@ -19,6 +19,7 @@ pkgs:
     fontspec
     geometry
     hyperref
+    hyphen-dutch
     hyphen-english
     hyphen-german
     inconsolata
