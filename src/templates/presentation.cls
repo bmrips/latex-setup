@@ -2,6 +2,7 @@
 
 \LoadClassWithOptions[
     10pt,
+    aspectratio=169,
     xcolor = x11names
 ]{beamer}
 
